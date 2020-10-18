@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="js/three.js"></script>
+    <script src="js/orbitControls.js"></script>
+    <script>
+        // Our Javascript will go here.
+        var camera, scene, renderer, box;
+        var nboxs = 5;
+        var universe = [];
+        var uni = [];
+
+        for (let i = 0; i < nboxs; i++) {
+            let a = [];
+            for (let j = 0; j < nboxs; j++) {
+                let b = [];
+                for (let k = 0; k < nboxs; k++) {
+                    b.push(null);
+                }
+                a.push(b);
+                b = []
+            }
+            universe.push(a);
+        }
+
+        uni = JSON.parse(JSON.stringify(universe));
+
+
+
+        init();
+        render();
+
+        function makeCubes() {
+
+            let l = 0.4;
+            let sepa = 0.1;
+
+            // Cube
+            let geometry = new THREE.CubeGeometry(l, l, l);
+            let material = new THREE.MeshLambertMaterial({ color: 0xff0000 });
+
+
+            for (let i = 0; i < nboxs; i++) {
+                for (let j = 0; j < nboxs; j++) {
+                    for (let k = 0; k < nboxs; k++) {
+                        let cube = new THREE.Mesh(geometry, material);
+                        cube.position.set(i * (l + sepa), j * (l + sepa), k * (l + sepa));
+                        universe[i][j][k] = cube;
+                        scene.add(universe[i][j][k]);
+                        uni[i][j][k] = 0;
+                    }
+                }
+            }
+            uni[4][4][1] = 1;
+            uni[4][4][2] = 1;
+            uni[4][4][3] = 1;
+            uni[4][3][2] = 1;
+            uni[4][3][1] = 1;
+            uni[4][2][0] = 1;
+            uni[4][1][3] = 1;
+        }
+
+        function render() {
+            requestAnimationFrame(render);
+            for (let i = 0; i < nboxs; i++) {
+                for (let j = 0; j < nboxs; j++) {
+                    for (let k = 0; k < nboxs; k++) {
+                        if (uni[i][j][k] == 0) {
+                                universe[i][j][k].material = new THREE.MeshLambertMaterial({ color: 0x00ff00 });
+                                uni[i][j][k] == 1;
+                        }
+                    }
+                }
+            }
+            renderer.render(scene, camera);
+        }
+
+        function init() {
+
+            // Camera
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
+            camera.position.set(3, 2.5, 4);
+            camera.lookAt(0, 0, 0);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setClearColor("#e5e5e5");
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            window.addEventListener('resize', () => {
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+            })
+
+            var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+            makeCubes();
+
+            // Light
+            var light = new THREE.PointLight(0xffffff, 1, 500);
+            light.position.set(10, 10, 25);
+            scene.add(light);
+
+            var light2 = new THREE.PointLight(0xffffff, 1, 600);
+            light2.position.set(8, -10, -10);
+            scene.add(light2);
+        }
+    </script>
+</body>
+
+</html>
