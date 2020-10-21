@@ -21,7 +21,7 @@
     <script>
         // Our Javascript will go here.
         var camera, scene, renderer, box;
-        var nboxs = 5;
+        var nboxs = 10;
         var universe = [];
         var uni = [];
 
@@ -40,15 +40,13 @@
 
         uni = JSON.parse(JSON.stringify(universe));
 
-
-
         init();
         render();
 
         function makeCubes() {
 
-            let l = 0.4;
-            let sepa = 0.1;
+            let l = 0.2;
+            let sepa = 0.01;
 
             // Cube
             let geometry = new THREE.CubeGeometry(l, l, l);
@@ -70,74 +68,67 @@
                     }
                 }
             }
-            uni[4][4][1] = 1;
+            uni[1][4][1] = 1;
             universe[4][4][1].material = new THREE.MeshLambertMaterial({
                 color: 0x00ff00,
                 transparent: false,
                 opacity: 1.0
             });
-            uni[4][4][2] = 1;
+            uni[1][4][2] = 1;
             universe[4][4][2].material = new THREE.MeshLambertMaterial({
                 color: 0x00ff00,
                 transparent: false,
                 opacity: 1.0
             });
-            uni[4][4][3] = 1;
+            uni[1][4][3] = 1;
             universe[4][4][3].material = new THREE.MeshLambertMaterial({
                 color: 0x00ff00,
                 transparent: false,
                 opacity: 1.0
             });
-            uni[4][3][1] = 1;
+            uni[1][3][1] = 1;
             universe[4][3][1].material = new THREE.MeshLambertMaterial({
                 color: 0x00ff00,
                 transparent: false,
                 opacity: 1.0
             });
-            uni[4][2][2] = 1;
+            uni[1][2][2] = 1;
             universe[4][2][2].material = new THREE.MeshLambertMaterial({
                 color: 0x00ff00,
                 transparent: false,
                 opacity: 1.0
             });
 
-            uni[3][3][2] = 1;
+            uni[0][3][2] = 1;
             universe[3][3][2].material = new THREE.MeshLambertMaterial({
                 color: 0x00ff00,
                 transparent: false,
                 opacity: 1.0
             });
-            uni[3][3][1] = 1;
+            uni[0][3][1] = 1;
             universe[3][3][1].material = new THREE.MeshLambertMaterial({
                 color: 0x00ff00,
                 transparent: false,
                 opacity: 1.0
             });
-            // uni[4][3][2] = true;
-            // uni[4][3][2] = true;
-            // uni[4][2][2] = true;
-            // uni[4][1][2] = true;
-            // uni[4][0][1] = true;
-            // uni[4][0][2] = true;
-            // uni[4][0][3] = true;
         }
 
         function vecindad(i, j, k) {
             // let v = uni[(i + 1) % nboxs][j][k] + uni[(i - 1) % nboxs][j][k] + uni[i][(j + 1) % nboxs][k] + uni[i][(j - 1) % nboxs][k] + uni[i][j][(k + 1) % nboxs] + uni[i][j][(k - 1) % nboxs];
             let p = ((i + 1) % nboxs);
-            p = p < 0 ? p * -1 : p;
+            p = p > nboxs ? p * -1 : p;
 
             let q = ((i - 1) % nboxs);
             q = q < 0 ? q * -1 : q;
 
             let f = ((j + 1) % nboxs);
-            f = f < 0 ? f * -1 : f;
+            f = f > nboxs ? f * -1 : f;
 
             let g = ((j - 1) % nboxs);
             g = g < 0 ? g * -1 : g;
 
             let n = ((k + 1) % nboxs);
-            n = n < 0 ? n * -1 : n;
+            n = n > nboxs ? n * -1 : n;
 
             let m = ((k - 1) % nboxs);
             m = m < 0 ? m * -1 : m;
@@ -161,14 +152,14 @@
                     for (let k = 0; k < nboxs; k++) {
                         let v = vecindad(i, j, k);
                         // console.log(v);
-                        if (v >= 5) {
+                        if (v >= 4) {
                             //  DIE
                             universe[i][j][k].material = new THREE.MeshLambertMaterial({
                                 transparent: true,
                                 opacity: 0.0
                             });
                             copy[i][j][k] = 0
-                        } else if (v > 0 && v <= 3) {
+                        } else if (v > 0 && v <= 2) {
                             // LIVE
                             universe[i][j][k].material = new THREE.MeshLambertMaterial({
                                 color: 0x00ff00,
@@ -216,8 +207,8 @@
             light2.position.set(8, -10, -10);
             scene.add(light2);
 
-            for (let i = 0; i < 7; i++) {
-                await sleep(700);
+            for (let i = 0; i < 30; i++) {
+                await sleep(150);
                 life();
             }
         }
