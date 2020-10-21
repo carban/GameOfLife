@@ -136,8 +136,13 @@
             let g = ((j - 1) % nboxs);
             g = g < 0 ? g * -1 : g;
 
-            let v = uni[p][j][k] + uni[q][j][k] + uni[i][f][k] + uni[i][g][k];
-            return v
+            let n = ((k + 1) % nboxs);
+            n = n < 0 ? n * -1 : n;
+
+            let m = ((k - 1) % nboxs);
+            m = m < 0 ? m * -1 : m;
+
+            return uni[p][j][k] + uni[q][j][k] + uni[i][f][k] + uni[i][g][k] + uni[i][j][n] + uni[i][j][m];
         }
 
         function sleep(ms) {
@@ -149,22 +154,21 @@
             renderer.render(scene, camera);
         }
 
-        async function life() {
-            await sleep(1000);
+        function life() {
             let copy = JSON.parse(JSON.stringify(uni));
             for (let i = 0; i < nboxs; i++) {
                 for (let j = 0; j < nboxs; j++) {
                     for (let k = 0; k < nboxs; k++) {
                         let v = vecindad(i, j, k);
                         // console.log(v);
-                        if (v <= 2 || v >= 5) {
+                        if (v >= 5) {
                             //  DIE
                             universe[i][j][k].material = new THREE.MeshLambertMaterial({
                                 transparent: true,
                                 opacity: 0.0
                             });
                             copy[i][j][k] = 0
-                        } else if (v == 3) {
+                        } else if (v > 0 && v <= 3) {
                             // LIVE
                             universe[i][j][k].material = new THREE.MeshLambertMaterial({
                                 color: 0x00ff00,
@@ -179,7 +183,7 @@
             uni = copy;
         }
 
-        function init() {
+        async function init() {
 
             // Camera
             scene = new THREE.Scene();
@@ -212,7 +216,10 @@
             light2.position.set(8, -10, -10);
             scene.add(light2);
 
-            life();
+            for (let i = 0; i < 7; i++) {
+                await sleep(700);
+                life();
+            }
         }
     </script>
 </body>
