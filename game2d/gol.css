@@ -1,0 +1,67 @@
+:root{
+    --cellWidth: 10px;
+    --cellHeight: 10px;
+}
+
+#wrapper {
+    display: flex;
+}
+
+#controls {
+    /* flex: 1; */
+    width: 25vw;
+}
+
+
+#world {
+    /* flex: 0 0 65%; */
+    padding-bottom: 0px;
+    width: 75vw;
+    align-self: center;
+}
+table {
+    background-color: whitesmoke;
+    border-collapse: collapse;
+    border: none;
+}
+td {
+    border: 1px solid darkgray;
+    width: var(--cellWidth);
+    height: var(--cellHeight);
+    padding: 0;
+}
+
+.control {
+    border: 1px solid darkgray;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+.centerCell {
+    border: 1px solid darkgray;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: blue;
+}
+
+td.dead {
+    background-color: transparent;
+}
+td.alive {
+    background-color:black;
+}
+.unselected {
+    border: 1px solid darkgray;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: transparent;
+}
+.selected {
+    border: 1px solid darkgray;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: cyan;
+}

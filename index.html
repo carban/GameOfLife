@@ -18,13 +18,34 @@
 <body>
     <script src="js/three.js"></script>
     <script src="js/orbitControls.js"></script>
+    <script src="js/dat.gui/dat.gui-master/dat.gui.js"></script>
     <script>
+
+        var controls = new function() {
+            this.nboxs = 5;
+            this.bouncingSpeed = 0.03;
+        }
+        var debugStep=0;
         // Our Javascript will go here.
         var camera, scene, renderer, box;
-        var nboxs = 10;
+        var nboxs = controls.nboxs;
         var universe = [];
         var uni = [];
 
+        
+        var gui = new dat.gui.GUI();
+        //gui.add(controls, 'nboxs', 2, 10);
+        gui.add(controls, "nboxs",nboxs).min(1).max(13).step(1).onChange(
+            function(newValue) {
+                console.log("Value changed to:  ", newValue, controls.nboxs);
+                init();
+                render();
+                
+            });;
+        //gui.add(controls, 'bouncingSpeed', 0, 0.5);
+
+        //gui.add(controls, "nboxs")
+        
         for (let i = 0; i < nboxs; i++) {
             let a = [];
             for (let j = 0; j < nboxs; j++) {
@@ -37,14 +58,14 @@
             }
             universe.push(a);
         }
-
+        console.log("defining uni", debugStep++)
         uni = JSON.parse(JSON.stringify(universe));
 
         init();
         render();
 
         function makeCubes() {
-
+            console.log("Makes Cubes", debugStep++)
             let l = 0.2;
             let sepa = 0.01;
 
@@ -56,11 +77,11 @@
                 opacity: 0.0
             });
 
-
+            var  cube; // = new THREE.Mesh(geometry, material);
             for (let i = 0; i < nboxs; i++) {
                 for (let j = 0; j < nboxs; j++) {
                     for (let k = 0; k < nboxs; k++) {
-                        let cube = new THREE.Mesh(geometry, material);
+                        cube = new THREE.Mesh(geometry, material);
                         cube.position.set(i * (l + sepa), j * (l + sepa), k * (l + sepa));
                         universe[i][j][k] = cube;
                         scene.add(universe[i][j][k]);
@@ -68,6 +89,8 @@
                     }
                 }
             }
+
+
             uni[1][4][1] = 1;
             universe[4][4][1].material = new THREE.MeshLambertMaterial({
                 color: 0x00ff00,
@@ -141,6 +164,7 @@
         }
 
         function render() {
+            //console.log("Render func", debugStep++)
             requestAnimationFrame(render);
             renderer.render(scene, camera);
         }
@@ -175,6 +199,7 @@
         }
 
         async function init() {
+            console.log("INIT FUNC", debugStep++)
 
             // Camera
             scene = new THREE.Scene();

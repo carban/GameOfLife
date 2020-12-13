@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game of Life 2D</title>
+    <!-- Our Style Sheet -->
+    <link rel="stylesheet" href='gol.css'>
+</head>
+<body>
+    <div id='wrapper'>
+        <div id='world'>
+        </div>
+        <div id='controls'>
+            <h2>RULES</h2>
+            <div id='wrapper'>
+                <h4>Alive:</h4>
+                <table id='configGrid'>
+                </table>
+            </div>
+            <div id='wrapper'>
+                <h4>speed [smaller its faster] (ms):</h4>
+                <input type="number" name="speed" id="speed">
+            </div>
+            
+            <div>
+                <input type='button' value='Evolve' onclick='evolve()'.>
+                <Input type='button' id='btnstartstop' value='Start Reproducing' onclick='startStopGol();'/>
+                <Input type='button' id='btnreset' value='Reset World' onclick='resetWorld();'/>
+            </div>
+        </div>
+    </div>
+<!-- Our JavaScript -->
+    <script src='gol.js'></script>
+</body>
+</html>
