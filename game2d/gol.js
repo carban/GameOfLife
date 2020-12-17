@@ -34,6 +34,7 @@ function createControlGrid(){
         let cell = document.createElement('td')
         cell.setAttribute('id', i + '_' + j);
         cell.setAttribute('class', 'control');
+        
         //cell.setAttribute('class', 'unselected');
         cell.addEventListener('click', controlCellClick);
         if (i ==1 && j ==1 ){
@@ -54,6 +55,7 @@ function controlCellClick() {
 // Toggle cell alive or dead
     if (this.className==='selected'){
         this.setAttribute('class', 'unselected');
+        //console.log('row', row, 'col',col)
         control[row][col] = 0;
        
     }else{
@@ -134,55 +136,94 @@ function getNeighborCount(row, col) {
     
         // Make sure we are not at the first row
         if (nrow - 1 >= 0) {
-        // Check top neighbor
-        if (currGen[nrow - 1][ncol] == 1) 
-            count++;
+            if(control[0][1]){
+
+                // Check top neighbor
+                if (currGen[nrow - 1][ncol] == 1){
+                    
+                    count++;
+                }
+            }
     }
         // Make sure we are not in the first cell
         // Upper left corner
         if (nrow - 1 >= 0 && ncol - 1 >= 0) {
-        //Check upper left neighbor
-        if (currGen[nrow - 1][ncol - 1] == 1) 
-            count++;
+            if(control[0][0]){
+
+                //Check upper left neighbor
+                if (currGen[nrow - 1][ncol - 1] == 1){
+                    
+                    count++;
+                }
+            }
     }
 // Make sure we are not on the first row last column
         // Upper right corner
         if (nrow - 1 >= 0 && ncol + 1 < cols) {
-        //Check upper right neighbor
-            if (currGen[nrow - 1][ncol + 1] == 1) 
-                count++;
+            if(control[0][2]){
+
+                //Check upper right neighbor
+                if (currGen[nrow - 1][ncol + 1] == 1){
+                    
+                    count++;
+                }
+            }
         }
 // Make sure we are not on the first column
     if (ncol - 1 >= 0) {
-        //Check left neighbor
-        if (currGen[nrow][ncol - 1] == 1) 
-            count++;
+        if(control[1][0]){
+
+            //Check left neighbor
+            if (currGen[nrow][ncol - 1] == 1){
+                
+                count++;
+            }
+        }
     }
     // Make sure we are not on the last column
     if (ncol + 1 < cols) {
-        //Check right neighbor
-        if (currGen[nrow][ncol + 1] == 1) 
-            count++;
+        if(control[1][2]){
+
+            //Check right neighbor
+            if (currGen[nrow][ncol + 1] == 1){
+                
+                count++;
+            }
+        }
     }
 // Make sure we are not on the bottom left corner
     if (nrow + 1 < rows && ncol - 1 >= 0) {
-        //Check bottom left neighbor
-        if (currGen[nrow + 1][ncol - 1] == 1) 
-            count++;
+        if(control[2][0]){
+
+            //Check bottom left neighbor
+            if (currGen[nrow + 1][ncol - 1] == 1){
+                
+                count++;
+            }
+        }
     }
 // Make sure we are not on the bottom right
     if (nrow + 1 < rows && ncol + 1 < cols) {
-        //Check bottom right neighbor
-        if (currGen[nrow + 1][ncol + 1] == 1) 
-            count++;
+        if(control[2][2]){
+
+            //Check bottom right neighbor
+            if (currGen[nrow + 1][ncol + 1] == 1){
+                
+                count++;
+            }
+        }
     }
-    
     
         // Make sure we are not on the last row
     if (nrow + 1 < rows) {
-        //Check bottom neighbor
-        if (currGen[nrow + 1][ncol] == 1) 
-            count++;
+        if(control[2][1]){
+
+            //Check bottom neighbor
+            if (currGen[nrow + 1][ncol] == 1){
+                
+                count++;
+            }
+        }
     }
     
     
