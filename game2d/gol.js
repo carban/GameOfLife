@@ -90,10 +90,11 @@ window.onload=()=>{
     createGenArrays();// current and next generations
     initGenArrays();//Set all array locations to 0=deads
 
-    let speed= document.querySelector('speed');
+    let speed= document.querySelector('#speed');
     speed.addEventListener('change',function () {
+        //console.log(evolutionSpeed)
         evolutionSpeed = parseInt(this.value);
-        alert("change")
+        //alert("change")
     })
 }
 
