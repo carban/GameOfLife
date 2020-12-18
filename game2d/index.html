@@ -19,26 +19,28 @@
                 <h2>Controls</h2>
             </center>
             <div>
-                <h4>Alive:</h4>
+                <h4>Neighbors:</h4>
                 <center>
                     <table id='configGrid'></table>
                 </center>
             </div>
+            <br>
+            <br>
             <div>
-                <h4>Speed:</h4>
                 <span>Fast</span>
-                <input type="range" min="0" max="200" value="100" class="slider" name="speed" id="speed" />
+                <input type="range" min="0" max="150" value="75" class="slider" name="speed" id="speed" />
                 <span>Slow</span>
             </div>
-            <center>
-                <div>
-                    <br>
+            <br>
+            <br>
+            <div>
+                <center>
                     <input type='button' id='btnevolve' value='⏩' onclick='evolve()' title="Evolve one step" />
                     <Input type='button' id='btnstartstop' class="btnstart" value=' ▶ ' onclick='startStopGol();'
                         title="Start/Stop the world" />
                     <Input type='button' id='btnreset' value='🔄' onclick='resetWorld();' title="Restart the world" />
-                </div>
-            </center>
+                </center>
+            </div>
         </div>
     </div>
     <!-- Our JavaScript -->
