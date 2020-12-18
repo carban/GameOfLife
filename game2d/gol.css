@@ -1,6 +1,6 @@
 :root{
-    --cellWidth: 15px;
-    --cellHeight: 15px;
+    --cellWidth: 12px;
+    --cellHeight: 12px;
 }
 
 body {
@@ -12,7 +12,6 @@ body {
 }
 
 #controls {
-    /* flex: 1; */
     color: white;
     width: 25vw;
     border-style: solid;

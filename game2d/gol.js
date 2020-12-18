@@ -1,5 +1,5 @@
-const rows = 40;
-const cols = 60;
+const rows = 50;
+const cols = 80;
 
 // Need 2D arrays. These are 1D
 let currGen = [rows];
@@ -7,7 +7,7 @@ let nextGen = [rows];
 let control = [3];
 let started = false;// Set to true when use clicks start
 let timer;//To control evolutions
-let evolutionSpeed = 75;// One second between generations
+let evolutionSpeed = 150;// One second between generations
 let drawingMode = false;
 
 // Creates two-dimensional arrays
