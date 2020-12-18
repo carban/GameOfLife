@@ -9,6 +9,8 @@ let started = false;// Set to true when use clicks start
 let timer;//To control evolutions
 let evolutionSpeed = 150;// One second between generations
 let drawingMode = false;
+let aliveSTYLE = 'alive';
+let deadSTYLE = 'dead';
 
 // Creates two-dimensional arrays
 function createGenArrays() {
@@ -126,11 +128,11 @@ function cellClick() {
     let col = Number(loc[1]);//Get j
     // Toggle cell alive or dead
     if (this.className === 'alive') {
-        this.setAttribute('class', 'dead');
+        this.setAttribute('class', deadSTYLE);
         currGen[row][col] = 0;
 
     } else {
-        this.setAttribute('class', 'alive');
+        this.setAttribute('class', aliveSTYLE);
         currGen[row][col] = 1;
 
     }
@@ -147,10 +149,17 @@ function cellHover(e) {
         let col = Number(loc[1]); //Get j
         // Toggle cell alive or dead
 
-        this.setAttribute('class', 'alive');
+        this.setAttribute('class', aliveSTYLE);
         currGen[row][col] = 1;
     }
+}
 
+function setColorAlive(color) {
+    aliveSTYLE = color;
+}
+
+function setColorDead(color) {
+    deadSTYLE = color;
 }
 
 function getNeighborCount(row, col) {
@@ -302,9 +311,9 @@ function updateWorld() {
         for (col in currGen[row]) {
             cell = document.getElementById(row + '_' + col);
             if (currGen[row][col] == 0) {
-                cell.setAttribute('class', 'dead');
+                cell.setAttribute('class', deadSTYLE);
             } else {
-                cell.setAttribute('class', 'alive');
+                cell.setAttribute('class', aliveSTYLE);
             }
         }
     }

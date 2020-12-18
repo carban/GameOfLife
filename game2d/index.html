@@ -18,8 +18,26 @@
             <center>
                 <h2>Controls</h2>
             </center>
+            <br>
             <div>
-                <h4>Neighbors:</h4>
+                <span>Alive cells color: </span>
+                <button onclick='setColorAlive("alive")' class="btnBLACK"></button>
+                <button onclick='setColorAlive("aliveRED")' class="btnRED"></button>
+                <button onclick='setColorAlive("aliveGREEN")' class="btnGREEN"></button>
+                <button onclick='setColorAlive("aliveBLUE")' class="btnBLUE"></button>
+                <button onclick='setColorAlive("aliveWHITE")' class="btnWHITE"></button>
+            </div>
+            <div>
+                <span>Dead cells color: </span>
+                <button onclick='setColorDead("dead")' class="btnWHITE"></button>
+                <button onclick='setColorDead("aliveRED")' class="btnRED"></button>
+                <button onclick='setColorDead("aliveGREEN")' class="btnGREEN"></button>
+                <button onclick='setColorDead("aliveBLUE")' class="btnBLUE"></button>
+                <button onclick='setColorDead("alive")' class="btnBLACK"></button>
+            </div>
+            <div>
+                <br>
+                <span>Neighbors:</span>
                 <center>
                     <table id='configGrid'></table>
                 </center>
@@ -40,6 +58,7 @@
                         title="Start/Stop the world" />
                     <Input type='button' id='btnreset' value='🔄' onclick='resetWorld();' title="Restart the world" />
                 </center>
+
             </div>
         </div>
     </div>

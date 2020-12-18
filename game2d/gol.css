@@ -26,14 +26,15 @@ body {
     width: 75vw;
     align-self: center;
 }
+
+#world:hover{
+    cursor: url("pencil.png"), auto;
+}
+
 table {
     background-color: whitesmoke;
     border-collapse: collapse;
     border: none;
-}
-
-table:hover{
-    cursor: url("pencil.png"), auto;
 }
 
 td {
@@ -58,10 +59,22 @@ td {
 }
 
 td.dead {
-    background-color: transparent;
+    background-color: white;
 }
 td.alive {
-    background-color:black;
+    background-color: black;
+}
+td.aliveRED {
+    background-color: red;
+}
+td.aliveGREEN {
+    background-color: green;
+}
+td.aliveBLUE {
+    background-color: blue;
+}
+td.aliveWHITE {
+    background-color: white;
 }
 .unselected {
     border: 1px solid darkgray;
@@ -156,3 +169,53 @@ td.alive {
     background: #4CAF50;
     cursor: pointer;
   }
+
+  .btnBLACK{
+    background-color: black;
+    border: none;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btnRED{
+    background-color: red;
+    border: none;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btnBLUE{
+    background-color: blue;
+    border: none;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btnGREEN{
+    background-color: green;
+    border: none;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btnWHITE{
+    background-color: white;
+    border: none;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
