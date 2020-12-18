@@ -1,5 +1,5 @@
-const rows = 70;
-const cols = 70;
+const rows = 40;
+const cols = 60;
 
 // Need 2D arrays. These are 1D
 let currGen =[rows];
@@ -7,7 +7,7 @@ let nextGen =[rows];
 let control = [3];
 let started=false;// Set to true when use clicks start
 let timer;//To control evolutions
-let evolutionSpeed=1000;// One second between generations
+let evolutionSpeed=200;// One second between generations
 // Creates two-dimensional arrays
 function createGenArrays() {
     for (let i = 0; i < rows; i++) {
@@ -30,7 +30,7 @@ function createControlGrid(){
       control[i]= new Array(3);
     let tr = document.createElement('tr');
     for (let j=0;j < 3;j++){
-        //control[i][j]=0;
+        // control[i][j]=1;
         let cell = document.createElement('td')
         cell.setAttribute('id', i + '_' + j);
         //cell.setAttribute('class', 'control');
@@ -102,15 +102,17 @@ window.onload=()=>{
 
 function startStopGol(){
     let startstop=document.querySelector('#btnstartstop');
-   
+    console.log(startstop);
     if (!started) {
        started = true;
-       startstop.value='Stop Reproducing';
+       startstop.value=' || ';
+       startstop.className = 'btnstop';
        evolve();
      
      } else {
         started = false;
-        startstop.value='Start Reproducing';
+        startstop.value=' ▶ ';
+        startstop.className = 'btnstart';
         clearTimeout(timer); 
     }
 }

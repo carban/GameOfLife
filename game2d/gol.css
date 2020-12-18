@@ -1,6 +1,10 @@
 :root{
-    --cellWidth: 10px;
-    --cellHeight: 10px;
+    --cellWidth: 15px;
+    --cellHeight: 15px;
+}
+
+body {
+    background-color: rgb(61, 61, 61);
 }
 
 #wrapper {
@@ -9,6 +13,7 @@
 
 #controls {
     /* flex: 1; */
+    color: white;
     width: 25vw;
 }
 
@@ -65,3 +70,82 @@ td.alive {
     padding: 0;
     background-color: cyan;
 }
+
+.btnstop{
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btnstart{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#btnevolve{
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#btnreset{
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 70%;
+    height: 5px;
+    background: white;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-color: #4CAF50; 
+    background: #4CAF50;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border-color: #4CAF50; 
+    background: #4CAF50;
+    cursor: pointer;
+  }
