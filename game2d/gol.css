@@ -68,7 +68,7 @@ td.aliveRED {
     background-color: red;
 }
 td.aliveGREEN {
-    background-color: green;
+    background-color: rgb(1, 202, 1);
 }
 td.aliveBLUE {
     background-color: blue;
@@ -201,7 +201,7 @@ td.aliveWHITE {
 }
 
 .btnGREEN{
-    background-color: green;
+    background-color: rgb(1, 202, 1);
     border: none;
     padding: 10px 10px;
     text-align: center;
