@@ -1,5 +1,5 @@
-const rows = 40;
-const cols = 40;
+const rows = 70;
+const cols = 70;
 
 // Need 2D arrays. These are 1D
 let currGen =[rows];
@@ -30,11 +30,12 @@ function createControlGrid(){
       control[i]= new Array(3);
     let tr = document.createElement('tr');
     for (let j=0;j < 3;j++){
-        control[i][j]=0;
+        //control[i][j]=0;
         let cell = document.createElement('td')
         cell.setAttribute('id', i + '_' + j);
-        cell.setAttribute('class', 'control');
-        
+        //cell.setAttribute('class', 'control');
+        cell.setAttribute('class', 'selected');
+        control[i][j] = 1;
         //cell.setAttribute('class', 'unselected');
         cell.addEventListener('click', controlCellClick);
         if (i ==1 && j ==1 ){
