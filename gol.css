@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: rgb(87, 87, 87);
+    background-color: rgb(56, 56, 56);
 }
 
 #wrapper {
@@ -17,6 +17,7 @@ body {
     border-style: solid;
     border-radius: 15px;
     padding-left: 15px;
+    background-color: rgb(87, 87, 87);
 }
 
 
@@ -221,10 +222,12 @@ td.aliveWHITE {
 }
 
 .btnRandom{
-    background-color: transparent;
+    background-color: white;
     font-size: 25px;
     border: none;
     border-radius: 50%;
+    border-color: brown;
+    border-style: solid;
     text-align: center;
     text-decoration: none;
     display: inline-block;

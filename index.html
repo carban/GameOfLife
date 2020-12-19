@@ -17,53 +17,50 @@
         <div id='controls'>
             <center>
                 <h2>Controls</h2>
-            </center>
-            <br>
-            <div>
-                <span>Random Cells: </span>
-                <button onclick='randomWorld()' class="btnRandom">🎲</button>
-            </div>
-            <br>
-            <div>
-                <span>Alive cells color: </span>
-                <button onclick='setColorAlive("alive")' class="btnBLACK"></button>
-                <button onclick='setColorAlive("aliveRED")' class="btnRED"></button>
-                <button onclick='setColorAlive("aliveGREEN")' class="btnGREEN"></button>
-                <button onclick='setColorAlive("aliveBLUE")' class="btnBLUE"></button>
-                <button onclick='setColorAlive("aliveWHITE")' class="btnWHITE"></button>
-            </div>
-            <div>
-                <span>Dead cells color: </span>
-                <button onclick='setColorDead("dead")' class="btnWHITE"></button>
-                <button onclick='setColorDead("aliveRED")' class="btnRED"></button>
-                <button onclick='setColorDead("aliveGREEN")' class="btnGREEN"></button>
-                <button onclick='setColorDead("aliveBLUE")' class="btnBLUE"></button>
-                <button onclick='setColorDead("alive")' class="btnBLACK"></button>
-            </div>
-            <div>
+                <div>
+                    <!-- <span>Random Cells: </span> -->
+                    <button onclick='randomWorld()' class="btnRandom" title="Random World">🎲</button>
+                </div>
                 <br>
-                <span>Neighbors:</span>
-                <center>
+                <div>
+                    <span>Alive cells color: </span>
+                    <br>
+                    <button onclick='setColorAlive("alive")' class="btnBLACK"></button>
+                    <button onclick='setColorAlive("aliveRED")' class="btnRED"></button>
+                    <button onclick='setColorAlive("aliveGREEN")' class="btnGREEN"></button>
+                    <button onclick='setColorAlive("aliveBLUE")' class="btnBLUE"></button>
+                    <button onclick='setColorAlive("aliveWHITE")' class="btnWHITE"></button>
+                </div>
+                <div>
+                    <span>Dead cells color: </span>
+                    <br>
+                    <button onclick='setColorDead("dead")' class="btnWHITE"></button>
+                    <button onclick='setColorDead("aliveRED")' class="btnRED"></button>
+                    <button onclick='setColorDead("aliveGREEN")' class="btnGREEN"></button>
+                    <button onclick='setColorDead("aliveBLUE")' class="btnBLUE"></button>
+                    <button onclick='setColorDead("alive")' class="btnBLACK"></button>
+                </div>
+                <div>
+                    <br>
+                    <span>Neighbors:</span>
                     <table id='configGrid'></table>
-                </center>
-            </div>
-            <br>
-            <br>
-            <div>
-                <span>Fast</span>
-                <input type="range" min="0" max="200" value="100" class="slider" name="speed" id="speed" />
-                <span>Slow</span>
-            </div>
-            <br>
-            <br>
-            <div>
-                <center>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <span>Fast</span>
+                    <input type="range" min="0" max="300" value="150" class="slider" name="speed" id="speed" />
+                    <span>Slow</span>
+                </div>
+                <br>
+                <br>
+                <div>
                     <input type='button' id='btnevolve' value='⏩' onclick='evolve()' title="Evolve one step" />
                     <Input type='button' id='btnstartstop' class="btnstart" value=' ▶ ' onclick='startStopGol();'
                         title="Start/Stop the world" />
                     <Input type='button' id='btnreset' value='🔄' onclick='resetWorld();' title="Restart the world" />
-                </center>
-            </div>
+                </div>
+            </center>
         </div>
     </div>
     <!-- Our JavaScript -->
