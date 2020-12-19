@@ -127,14 +127,13 @@ function cellClick() {
     let row = Number(loc[0]);//Get i
     let col = Number(loc[1]);//Get j
     // Toggle cell alive or dead
-    if (this.className === 'alive') {
+    if (currGen[row][col] === 1) {
         this.setAttribute('class', deadSTYLE);
         currGen[row][col] = 0;
-
+        
     } else {
         this.setAttribute('class', aliveSTYLE);
         currGen[row][col] = 1;
-
     }
 }
 
