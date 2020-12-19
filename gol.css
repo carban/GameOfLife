@@ -219,3 +219,14 @@ td.aliveWHITE {
     display: inline-block;
     cursor: pointer;
 }
+
+.btnRandom{
+    background-color: transparent;
+    font-size: 25px;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}

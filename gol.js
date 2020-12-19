@@ -291,6 +291,16 @@ function createNextGen() {
 
 }
 
+function randomWorld() {
+    for (row in currGen) {
+        for (col in currGen[row]) {
+            currGen[row][col] = Math.round(Math.random());
+            nextGen[row][col] = 0;
+        }
+    }
+    updateWorld();
+}
+
 function updateCurrGen() {
 
     for (row in currGen) {

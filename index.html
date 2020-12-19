@@ -20,6 +20,11 @@
             </center>
             <br>
             <div>
+                <span>Random Cells: </span>
+                <button onclick='randomWorld()' class="btnRandom">🎲</button>
+            </div>
+            <br>
+            <div>
                 <span>Alive cells color: </span>
                 <button onclick='setColorAlive("alive")' class="btnBLACK"></button>
                 <button onclick='setColorAlive("aliveRED")' class="btnRED"></button>
@@ -58,7 +63,6 @@
                         title="Start/Stop the world" />
                     <Input type='button' id='btnreset' value='🔄' onclick='resetWorld();' title="Restart the world" />
                 </center>
-
             </div>
         </div>
     </div>
