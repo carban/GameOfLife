@@ -1,3 +1,3 @@
 # GameOfLife
 
-Deploy: https://carban.github.io/GameOfLife3D/
+Deploy: https://carban.github.io/GameOfLife/
